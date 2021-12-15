@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+	Navbar,
+	Headline,
+	Explore,
+	Cards,
+	TopArtist,
+	Activity,
+} from "./components/";
+import styled from "styled-components";
+const Container = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 8.875rem;
+	margin-right: 1.25rem;
+	@media (max-width: 1024px) {
+		padding: 1rem;
+	}
+	@media (max-width: 767px) {
+		margin-left: 0;
+	}
+`;
+const Body = styled.section`
+	width: 73%;
+	@media (max-width: 1024px) {
+		width: 100%;
+	}
+`;
+
+const Sidebar = styled.aside`
+	width: 27%;
+	@media (max-width: 1024px) {
+		width: 100%;
+	}
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Navbar />
+			<Container>
+				<Body>
+					<Headline />
+					<Explore />
+					<Cards />
+				</Body>
+				<Sidebar>
+					<TopArtist />
+					<Activity />
+				</Sidebar>
+			</Container>
+		</>
+	);
 }
 
 export default App;
