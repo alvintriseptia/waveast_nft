@@ -14,6 +14,7 @@ const StyledCards = styled.div`
 	}
 	@media (max-width: 767px) {
 		flex-wrap: nowrap;
+		justify-content: flex-start;
 		overflow-x: auto;
 		&::-webkit-scrollbar {
 			width: 0;
