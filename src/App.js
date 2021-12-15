@@ -16,7 +16,7 @@ const Container = styled.div`
 		padding: 1rem;
 	}
 	@media (max-width: 767px) {
-		margin-left: 0;
+		margin: 0;
 	}
 `;
 const Body = styled.section`
