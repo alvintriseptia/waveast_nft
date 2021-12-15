@@ -57,7 +57,7 @@ const TopArtist = () => {
 	const [datas, setDatas] = useState([]);
 	// Make a request for a user with a given ID
 
-	const getFeatureArtworks = async () => {
+	const getTopArtist = async () => {
 		try {
 			const response = await axios.get(
 				"https://6196ed95af46280017e7e326.mockapi.io/waveast/api/nft-marketplace/top-artist"
@@ -69,7 +69,7 @@ const TopArtist = () => {
 	};
 
 	useEffect(() => {
-		getFeatureArtworks();
+		getTopArtist();
 	}, []);
 
 	return (

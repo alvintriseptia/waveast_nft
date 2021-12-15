@@ -78,7 +78,7 @@ const Activity = () => {
 	const [datas, setDatas] = useState([]);
 	// Make a request for a user with a given ID
 
-	const getFeatureArtworks = async () => {
+	const getRecentActivity = async () => {
 		try {
 			const response = await axios.get(
 				"https://6196ed95af46280017e7e326.mockapi.io/waveast/api/nft-marketplace/recent-activities"
@@ -90,7 +90,7 @@ const Activity = () => {
 	};
 
 	useEffect(() => {
-		getFeatureArtworks();
+		getRecentActivity();
 	}, []);
 	return (
 		<StyledActivity>
