@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { BaseUrl } from "../BaseUrl";
 
 const StyledTopArtist = styled.div`
 	overflow-y: auto;
@@ -59,9 +60,7 @@ const TopArtist = () => {
 
 	const getTopArtist = async () => {
 		try {
-			const response = await axios.get(
-				"https://6196ed95af46280017e7e326.mockapi.io/waveast/api/nft-marketplace/top-artist"
-			);
+			const response = await axios.get(`${BaseUrl}/top-artist`);
 			setDatas(response.data);
 		} catch (error) {
 			throw error;

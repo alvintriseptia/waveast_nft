@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import axios from "axios";
+import { BaseUrl } from "../BaseUrl";
 
 const StyledCards = styled.div`
 	display: flex;
@@ -28,9 +29,7 @@ const Cards = () => {
 
 	const getFeatureArtworks = async () => {
 		try {
-			const response = await axios.get(
-				"https://6196ed95af46280017e7e326.mockapi.io/waveast/api/nft-marketplace/featured-artworks"
-			);
+			const response = await axios.get(`${BaseUrl}//featured-artworks`);
 			setDatas(response.data);
 		} catch (error) {
 			throw error;

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { BaseUrl } from "../BaseUrl";
 
 const StyledActivity = styled.div`
 	overflow-y: auto;
@@ -80,9 +81,7 @@ const Activity = () => {
 
 	const getRecentActivity = async () => {
 		try {
-			const response = await axios.get(
-				"https://6196ed95af46280017e7e326.mockapi.io/waveast/api/nft-marketplace/recent-activities"
-			);
+			const response = await axios.get(`${BaseUrl}/recent-activities`);
 			setDatas(response.data);
 		} catch (error) {
 			throw error;

@@ -12,6 +12,7 @@ const Container = styled.div`
 	flex-wrap: wrap;
 	margin-left: 8.875rem;
 	margin-right: 1.25rem;
+	margin-bottom: 1.25rem;
 	@media (max-width: 1024px) {
 		padding: 1rem;
 	}

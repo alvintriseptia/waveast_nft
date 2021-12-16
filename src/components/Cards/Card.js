@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -113,10 +113,39 @@ const Bidder = styled.div`
 	}
 `;
 
-const Card = ({ data, url }) => {
-	const endsBidHours = data["bid_ends"].substr(11, 2);
-	const endsBidMinutes = data["bid_ends"].substr(14, 2);
-	const endsBidSeconds = data["bid_ends"].substr(17, 2);
+const Card = ({ data }) => {
+	const endsBidHours = parseInt(data["bid_ends"].substr(11, 2));
+	const endsBidMinutes = parseInt(data["bid_ends"].substr(14, 2));
+	const endsBidSeconds = parseInt(data["bid_ends"].substr(17, 2));
+
+	const [hours, setHours] = useState(endsBidHours);
+	const [minutes, setMinutes] = useState(endsBidMinutes);
+	const [seconds, setSeconds] = useState(endsBidSeconds);
+
+	useEffect(() => {
+		let myInterval = setInterval(() => {
+			if (seconds > 0) {
+				setSeconds(seconds - 1);
+			}
+			if (seconds === 0) {
+				if (minutes === 0) {
+					if (hours === 0) {
+						clearInterval(myInterval);
+					} else {
+						setHours(hours - 1);
+						setMinutes(59);
+					}
+				} else {
+					setMinutes(minutes - 1);
+					setSeconds(59);
+				}
+			}
+		}, 1000);
+		return () => {
+			clearInterval(myInterval);
+		};
+	});
+
 	return (
 		<StyledCard>
 			<ImageCard url={data.artworksUrl}>
@@ -125,7 +154,7 @@ const Card = ({ data, url }) => {
 					<Save />
 				</ItemContainer>
 				<AuctionEnd>
-					Ends in : {endsBidHours}h : {endsBidMinutes}m : {endsBidSeconds}s
+					Ends in : {hours}h : {minutes}m : {seconds}s
 				</AuctionEnd>
 			</ImageCard>
 			<BidContainer>
