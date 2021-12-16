@@ -27,6 +27,7 @@ const StyledTopArtist = styled.div`
 
 const UserContainer = styled.div`
 	display: flex;
+	row-gap: 0.5rem;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 1.25rem;
@@ -35,6 +36,7 @@ const UserContainer = styled.div`
 const UserProfile = styled.div`
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 	column-gap: 0.5rem;
 	margin-right: 1.25rem;
 	span {
@@ -51,6 +53,29 @@ const UserProfile = styled.div`
 			font-weight: 400;
 			color: #878787;
 		}
+	}
+`;
+
+const FollowButton = styled.button`
+	padding: 0.375rem 0.625rem;
+	border-radius: 0.5rem;
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	font-size: 0.75rem;
+	color: #fff;
+	background: linear-gradient(
+		103.85deg,
+		rgba(103, 99, 253, 1),
+		rgba(184, 78, 241, 1)
+	);
+	&:hover {
+		background: linear-gradient(
+			103.85deg,
+			rgba(103, 99, 253, 0.7),
+			rgba(184, 78, 241, 0.7)
+		);
+		color: rgba(255, 255, 255, 0.7);
 	}
 `;
 
@@ -84,6 +109,7 @@ const TopArtist = () => {
 							<p>@{data.username}</p>
 						</div>
 					</UserProfile>
+					<FollowButton>Follow</FollowButton>
 				</UserContainer>
 			))}
 		</StyledTopArtist>
