@@ -29,6 +29,7 @@ const Elipse1 = styled.img`
 	bottom: 0;
 	right: 0;
 	user-select: none;
+	pointer-events: none;
 	@media (max-width: 767px) {
 		width: 25%;
 	}
@@ -39,6 +40,7 @@ const Elipse2 = styled.img`
 	bottom: 0;
 	right: 0;
 	user-select: none;
+	pointer-events: none;
 	@media (max-width: 1024px) {
 		width: 25%;
 	}
@@ -49,6 +51,7 @@ const Background = styled.img`
 	bottom: 0;
 	right: 0;
 	user-select: none;
+	pointer-events: none;
 	@media (max-width: 1024px) {
 		width: 25%;
 	}
