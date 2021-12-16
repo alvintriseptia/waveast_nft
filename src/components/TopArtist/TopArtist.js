@@ -81,6 +81,7 @@ const FollowButton = styled.button`
 
 const TopArtist = () => {
 	const [datas, setDatas] = useState([]);
+	const [follow, setFollow] = useState([]);
 	// Make a request for a user with a given ID
 
 	const getTopArtist = async () => {
@@ -89,6 +90,18 @@ const TopArtist = () => {
 			setDatas(response.data);
 		} catch (error) {
 			throw error;
+		}
+	};
+
+	const handleEdit = (e) => {
+		e.preventDefault();
+		if (e.target.id === datas[e.target.id - 1].id) {
+			if (follow.includes(e.target.id)) {
+				setFollow(follow.filter((id) => id !== e.target.id));
+			} else {
+				setFollow([...follow, e.target.id]);
+				follow.sort();
+			}
 		}
 	};
 
@@ -109,7 +122,14 @@ const TopArtist = () => {
 							<p>@{data.username}</p>
 						</div>
 					</UserProfile>
-					<FollowButton>Follow</FollowButton>
+					<FollowButton
+						id={data.id}
+						onClick={(e) => {
+							handleEdit(e);
+						}}
+					>
+						{follow[data.id - 1] === data.id ? "Following" : "Follow"}
+					</FollowButton>
 				</UserContainer>
 			))}
 		</StyledTopArtist>
