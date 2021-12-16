@@ -15,6 +15,7 @@ What I learned :
 - [React](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://axios-http.com/)
+- [Netlify](https://www.netlify.com/)
 
 # Reference
 
